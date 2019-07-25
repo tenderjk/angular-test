@@ -39,29 +39,29 @@ export class HerosComponent implements OnInit {
     this.selectedHero = value
   }
 
-  ngOnChanges() {
-    console.log('change',this.herosData)
+  // ngOnChanges() {
+  //   console.log('change',this.herosData)
 
-  }
+  // }
   
-  ngAfterContentInit() {
-    console.log('AfterContentInit')
-  }
+  // ngAfterContentInit() {
+  //   console.log('AfterContentInit')
+  // }
 
-  ngAfterContentChecked() {
-    console.log('AfterContentChecked')
-  }
+  // ngAfterContentChecked() {
+  //   console.log('AfterContentChecked')
+  // }
 
-  ngAfterViewInit() {
-    console.log('AfterViewInit')
-  }
+  // ngAfterViewInit() {
+  //   console.log('AfterViewInit')
+  // }
 
-  ngAfterViewChecked() {
-    console.log('AfterViewChecked')
-  }
+  // ngAfterViewChecked() {
+  //   console.log('AfterViewChecked')
+  // }
 
-  ngOnDestroy() {
-    console.log('Destroy')
-  }
+  // ngOnDestroy() {
+  //   console.log('Destroy')
+  // }
 
 }

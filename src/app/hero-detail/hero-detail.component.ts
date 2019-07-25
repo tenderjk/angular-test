@@ -39,31 +39,31 @@ export class HeroDetailComponent implements OnInit {
     console.log(value)
   }
 
-  ngOnChanges() {
-    console.log('sub-change')
-  }
+  // ngOnChanges() {
+  //   console.log('sub-change')
+  // }
 
-  ngDoCheck() {
-    console.log('sub-ngDoCheck')
-  }
+  // ngDoCheck() {
+  //   console.log('sub-ngDoCheck')
+  // }
 
-  ngAfterContentInit() {
-    console.log('sub-AfterContentInit')
-  }
+  // ngAfterContentInit() {
+  //   console.log('sub-AfterContentInit')
+  // }
 
-  ngAfterContentChecked() {
-    console.log('sub-AfterContentChecked')
-  }
+  // ngAfterContentChecked() {
+  //   console.log('sub-AfterContentChecked')
+  // }
 
-  ngAfterViewInit() {
-    console.log('sub-AfterViewInit')
-  }
+  // ngAfterViewInit() {
+  //   console.log('sub-AfterViewInit')
+  // }
 
-  ngAfterViewChecked() {
-    console.log('sub-AfterViewChecked')
-  }
+  // ngAfterViewChecked() {
+  //   console.log('sub-AfterViewChecked')
+  // }
 
-  ngOnDestroy() {
-    console.log('sub-Destroy')
-  }
+  // ngOnDestroy() {
+  //   console.log('sub-Destroy')
+  // }
 }
