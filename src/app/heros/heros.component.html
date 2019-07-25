@@ -1,0 +1,14 @@
+<div *ngFor="let hero of herosData"
+ (click)="onSelect(hero)"
+ [ngClass]="{'selected': selectedHero === hero}"
+ >
+    <h2>{{hero.name}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <label>name: <input placeholder="name" [(ngModel)]="hero.name" /></label>
+    <div><span>name: </span>{{hero.name | uppercase}}</div>
+</div>
+<div *ngIf="selectedHero">
+    <app-hero-detail  #detail (voted)="showFlag($event)" [name]="selectedHero.name" [selectedHero] = 'selectedHero'></app-hero-detail>
+    <button (click)="detail.test()">test</button>
+</div>
+
