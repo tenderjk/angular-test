@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios'
+import { HeroServiceService } from './../hero-service.service'
 import Hero from './../hero'
+import { observable, of } from 'rxjs'
+import { switchMap } from 'rxjs/operators'
 // import  { test }  from './../heros'
 @Component({
   selector: 'app-heros',
@@ -10,7 +13,7 @@ import Hero from './../hero'
 export class HerosComponent implements OnInit {
   herosData: Hero[];
   selectedHero: Hero
-  constructor() { }
+  constructor(private service: HeroServiceService) { }
 
   showFlag (val:string) {
     console.log(val)
@@ -19,18 +22,22 @@ export class HerosComponent implements OnInit {
     console.log(target)
   }
   ngDoCheck() {
-    console.log('ngDoCheck',this.herosData)
   }
-
-  ngOnInit() {
-    axios.get('api/mock').then(res => {
-      console.log(res.data)
-      this.herosData = res.data.user
+  dataInit (): void {
+    this.service.getHeros().subscribe(res => {
+      this.herosData = res
     })
+  }
+  ngOnInit() {
+    // axios.get('api/mock').then(res => {
+    //   console.log(res.data)
+    //   this.herosData = res.data.user
+    // })
     // setTimeout(() => {
     //   this.herosData = []
     // }, 3000);
-    console.log('init',this.herosData)
+    this.dataInit()
+    // console.log('init',this.herosData)
 
   }
 

@@ -1,0 +1,12 @@
+<div>
+    <h2 >{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+        <label>name:
+        <input  [(ngModel)]="selectedHero.name" placeholder="name"/>
+        </label>
+        <!-- <a routerLink="/index">back</a> -->
+        <button (click) = back()>click me!</button>
+    </div>
+</div>
+

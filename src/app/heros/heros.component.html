@@ -1,8 +1,8 @@
-<div *ngFor="let hero of herosData"
+<div *ngFor="let hero of herosData;let id = index"
  (click)="onSelect(hero)"
  [ngClass]="{'selected': selectedHero === hero}"
  >
-    <h2>{{hero.name}} Details</h2>
+    <h2 [routerLink]="['/detail',id]">{{hero.name}} Details</h2>
     <div><span>id: </span>{{hero.id}}</div>
     <label>name: <input placeholder="name" [(ngModel)]="hero.name" /></label>
     <div><span>name: </span>{{hero.name | uppercase}}</div>

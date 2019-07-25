@@ -11,7 +11,4 @@ const Heros: Hero[] = [
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
 ]
-export const test = [
-  { id: 11, name: 'Dr Nice' },
-  { id: 12, name: 'Narco' },
-]
+export default Heros
