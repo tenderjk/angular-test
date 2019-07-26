@@ -8,6 +8,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroDetailJumpComponent } from './hero-detail-jump/hero-detail-jump.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OtherModule } from './other/other.module';
 
 @NgModule({
    declarations: [
@@ -19,9 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule,
       FormsModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      OtherModule,
+      AppRoutingModule,
    ],
    providers: [],
    bootstrap: [

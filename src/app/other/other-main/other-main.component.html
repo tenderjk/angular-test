@@ -1,0 +1,13 @@
+<p>other-main works!</p>
+<div>
+    <a routerLink="./sub1">sub1</a>
+    <a routerLink="./sub2">sub2</a>
+    <br/>
+    <button (click)="jump('sub1')">sub1</button>
+    <button (click)="jump('sub2')">sub1</button>
+    <a routerLink="/compose">Contact</a>
+    <a [routerLink]="[{ outlets: { show: ['compose'] } }]">Contact</a>
+    <a [routerLink]="[{ outlets: { show: null } }]">clear</a>
+</div>
+<router-outlet></router-outlet>
+<router-outlet name="show"></router-outlet>

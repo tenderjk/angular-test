@@ -13,7 +13,9 @@ import { switchMap } from 'rxjs/operators'
 export class HerosComponent implements OnInit {
   herosData: Hero[];
   selectedHero: Hero
-  constructor(private service: HeroServiceService) { }
+  constructor(private service: HeroServiceService) {
+    console.log(service)
+   }
 
   showFlag (val:string) {
     console.log(val)

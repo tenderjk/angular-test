@@ -4,6 +4,7 @@
 <div>
     <a routerLink="/index">首页</a>
     <a routerLink="/crisis">crisis</a>
+    <a [routerLink]="['/other',{ outlets: { show: [ 'compose' ] } }]">other</a>
 </div>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
 <router-outlet></router-outlet>
