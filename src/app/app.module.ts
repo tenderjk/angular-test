@@ -9,6 +9,7 @@ import { HeroDetailJumpComponent } from './hero-detail-jump/hero-detail-jump.com
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OtherModule } from './other/other.module';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
    declarations: [
@@ -24,6 +25,7 @@ import { OtherModule } from './other/other.module';
       BrowserAnimationsModule,
       OtherModule,
       AppRoutingModule,
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { OtherService } from './../other.service'
 import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-other-sub1',
   templateUrl: './other-sub1.component.html',
@@ -9,12 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class OtherSub1Component implements OnInit {
   time: string
+  userList: Array<any>
   constructor(
     private route: ActivatedRoute,
     private router:Router,
     private service: OtherService
   ) { }
-
+  
+  
   ngOnInit() {
     const inp = document.getElementById('inp')
     console.log(this.route)
@@ -64,6 +67,15 @@ export class OtherSub1Component implements OnInit {
       }, 3000);
     }
      )
-
+     
+     this.service.getName().subscribe(
+       res => {
+         console.log(res)
+         this.userList = res['username']
+        }
+     )
+  }
+  search (v) {
+    this.service.showKeyUp(v)
   }
 }

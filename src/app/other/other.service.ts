@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { of, from, Observable, interval, merge, fromEvent } from 'rxjs'
-import { map, filter } from 'rxjs/operators'
+import { of, from, Observable, interval, merge, fromEvent, throwError } from 'rxjs'
+import { map, filter, catchError, retry } from 'rxjs/operators'
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { HeroServiceService } from './../hero-service.service'
 import axios, { AxiosResponse } from 'axios'
 @Injectable({
@@ -17,7 +18,10 @@ export class OtherService {
   myObservable = of(1, 2, 3);
   
   testOb = this.service.getHeros()
-  constructor(private service: HeroServiceService) { }
+  constructor(
+    private service: HeroServiceService,
+    private http: HttpClient
+    ) { }
   fn () {
     this.myObservable.subscribe(this.myObserver)
     this.testOb.subscribe(this.myObserver)
@@ -111,5 +115,39 @@ export class OtherService {
       }
     }
   );
+
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.log('error', error.error.message)
+    } else {
+      console.error(
+        `body: error is ${error.error}`
+      )
+    }
+    return throwError('try again!')
+  }
+  
+  getName (): Observable<HttpResponse<any>> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'my-auth-token'
+      }),
+      // params: name ? new HttpParams().set('name', name) : {}
+      // params: { name: 'ttt', test: '12' }
+      
+    };
+    const url = 'https://api.juooo.com/home/index/getHotsRecommendList?city_id=0&version=6.0.1&referer=2'
+    // const url = 'api/getname'
+    return this.http.get<any>(url, httpOptions).pipe(
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
+
+  showKeyUp (value) {
+    console.log(value)
+  }
 
 }

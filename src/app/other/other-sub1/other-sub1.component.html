@@ -1,3 +1,10 @@
 <p>other-sub1 works!</p>
 <input id='inp' type="text" />
 {{ time }}
+<ul>
+    <li *ngFor="let user of userList">
+        {{user.name}}---{{user.img}}
+        <img src="{{user.img}}" />
+    </li>
+</ul>
+<input type="text" (keyup)="search($event.target.value)" />
